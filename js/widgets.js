@@ -100,6 +100,7 @@ const widgetConfigs = {
     }
 };
 
+const initializedWidgets = new Set();
 let activeWidgetType = 'symbolOverview';
 
 function initTradingWidgets() {
@@ -114,29 +115,52 @@ function renderSingleWidget(type, containerId) {
     const isDark = document.documentElement.classList.contains('dark');
     const widgetData = widgetConfigs[type];
 
+    // Hide all existing widget contents
+    const allContents = container.querySelectorAll('.widget-content-wrapper');
+    allContents.forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+    });
+
+    // Check if this widget type already exists in the container
+    let existingWidget = container.querySelector(`[data-widget-type="${type}"]`);
+
+    if (existingWidget) {
+        // Instant switch for already loaded widgets
+        existingWidget.classList.remove('hidden');
+        return;
+    }
+
     if (widgetData) {
-        // Show Terminal Loader
         container.classList.add('relative');
-        container.innerHTML = `
-            <div id="widget-loader" class="terminal-loading-overlay absolute inset-0 font-mono">
+
+        // Create wrapper for the new widget
+        const wrapper = document.createElement('div');
+        wrapper.className = 'widget-content-wrapper h-full w-full';
+        wrapper.setAttribute('data-widget-type', type);
+
+        wrapper.innerHTML = `
+            <div class="widget-loader terminal-loading-overlay absolute inset-0 font-mono">
                 <div class="scanline-effect"></div>
                 <div class="flex flex-col items-center gap-4 text-primary">
                     <span class="material-symbols-outlined text-4xl animate-pulse">settings_input_component</span>
                     <div class="space-y-1 text-center">
                         <p class="text-[10px] uppercase tracking-[0.3em] font-bold glitch-text">Establishing_Market_Node</p>
-                        <p id="loader-status" class="text-[8px] text-zinc-500 uppercase tracking-widest opacity-80">Syncing with TradingView_Cloud...</p>
+                        <p class="loader-status text-[8px] text-zinc-500 uppercase tracking-widest opacity-80">Syncing with TradingView_Cloud...</p>
                     </div>
                     <div class="loading-bar-container mt-2">
                         <div class="loading-bar-progress"></div>
                     </div>
                 </div>
             </div>
-            <div id="widget-content" class="h-full w-full opacity-0 transition-opacity duration-1000">
+            <div class="widget-real-content h-full w-full opacity-0 transition-opacity duration-1000">
                 <div class="tradingview-widget-container h-full w-full">
                     <div class="tradingview-widget-container__widget h-full w-full"></div>
                 </div>
             </div>
         `;
+
+        container.appendChild(wrapper);
 
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -144,20 +168,20 @@ function renderSingleWidget(type, containerId) {
         script.async = true;
         script.innerHTML = JSON.stringify(widgetData.config(isDark));
 
-        const widgetContent = container.querySelector('#widget-content');
-        const widgetContainer = widgetContent.querySelector('.tradingview-widget-container__widget');
+        const widgetRealContent = wrapper.querySelector('.widget-real-content');
+        const widgetContainer = widgetRealContent.querySelector('.tradingview-widget-container__widget');
 
         widgetContainer.appendChild(script);
 
-        // Simulate wait or check for iframe injection
+        // Run the "intentional" loader sequence for first-time load
         setTimeout(() => {
-            const loader = document.getElementById('widget-loader');
-            const status = document.getElementById('loader-status');
+            const loader = wrapper.querySelector('.widget-loader');
+            const status = wrapper.querySelector('.loader-status');
             if (status) status.innerText = "Connection_Established_v4.2";
 
             setTimeout(() => {
                 if (loader) loader.classList.add('hidden');
-                if (widgetContent) widgetContent.classList.remove('opacity-0');
+                if (widgetRealContent) widgetRealContent.classList.remove('opacity-0');
             }, 500);
         }, 1500);
     }
