@@ -225,7 +225,7 @@ function toggleAudio() {
 
     if (container.classList.contains('hidden')) {
         container.classList.remove('hidden');
-        audio.currentTime = 155; // Start at 2:40
+        audio.currentTime = 155; // Start at 2:35
         audio.play().catch(e => console.error("Audio play failed:", e));
         if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin text-primary">settings_voice</span> SYSTEM_AUDIO : [STAGING]';
     } else {

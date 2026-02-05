@@ -61,7 +61,7 @@ body {
 .animate-marquee {
     animation: marquee 30s linear infinite;
     display: flex;
-    width: 200%;
+    width: max-content;
 }
 
 .audio-glow {
