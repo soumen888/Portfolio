@@ -115,11 +115,28 @@ function renderSingleWidget(type, containerId) {
     const widgetData = widgetConfigs[type];
 
     if (widgetData) {
-        container.innerHTML = '';
-
-        const widgetDiv = document.createElement('div');
-        widgetDiv.className = 'tradingview-widget-container h-full w-full';
-        widgetDiv.innerHTML = '<div class="tradingview-widget-container__widget h-full w-full"></div>';
+        // Show Terminal Loader
+        container.classList.add('relative');
+        container.innerHTML = `
+            <div id="widget-loader" class="terminal-loading-overlay absolute inset-0 font-mono">
+                <div class="scanline-effect"></div>
+                <div class="flex flex-col items-center gap-4 text-primary">
+                    <span class="material-symbols-outlined text-4xl animate-pulse">settings_input_component</span>
+                    <div class="space-y-1 text-center">
+                        <p class="text-[10px] uppercase tracking-[0.3em] font-bold glitch-text">Establishing_Market_Node</p>
+                        <p id="loader-status" class="text-[8px] text-zinc-500 uppercase tracking-widest opacity-80">Syncing with TradingView_Cloud...</p>
+                    </div>
+                    <div class="loading-bar-container mt-2">
+                        <div class="loading-bar-progress"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="widget-content" class="h-full w-full opacity-0 transition-opacity duration-1000">
+                <div class="tradingview-widget-container h-full w-full">
+                    <div class="tradingview-widget-container__widget h-full w-full"></div>
+                </div>
+            </div>
+        `;
 
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -127,8 +144,22 @@ function renderSingleWidget(type, containerId) {
         script.async = true;
         script.innerHTML = JSON.stringify(widgetData.config(isDark));
 
-        widgetDiv.appendChild(script);
-        container.appendChild(widgetDiv);
+        const widgetContent = container.querySelector('#widget-content');
+        const widgetContainer = widgetContent.querySelector('.tradingview-widget-container__widget');
+
+        widgetContainer.appendChild(script);
+
+        // Simulate wait or check for iframe injection
+        setTimeout(() => {
+            const loader = document.getElementById('widget-loader');
+            const status = document.getElementById('loader-status');
+            if (status) status.innerText = "Connection_Established_v4.2";
+
+            setTimeout(() => {
+                if (loader) loader.classList.add('hidden');
+                if (widgetContent) widgetContent.classList.remove('opacity-0');
+            }, 500);
+        }, 1500);
     }
 }
 
