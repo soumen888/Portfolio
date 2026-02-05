@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Analytics | Technical Intelligence Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="bg-glow">
+        <div class="glow-circle" style="top: 10%; right: 10%;"></div>
+        <div class="glow-circle" style="bottom: 20%; left: 5%;"></div>
+    </div>
+
+    <div class="container">
+        <nav>
+            <a href="../../index.html" class="btn-back"><i data-lucide="arrow-left"></i> Back to Portfolio</a>
+            <div class="logo">💻 CORE TERMINAL</div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                TERMINAL STATUS: ONLINE
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1>Aggregated <br>Institutional Liquidity</h1>
+            <p class="tagline">A high-performance execution cockpit designed for the professional DEX trader. Consolidating fragmented liquidity into a single, unified interface.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val">< 1ms</div>
+                    <div class="stat-label">Signing Latency</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">AES-256</div>
+                    <div class="stat-label">GCM Encryption</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">Rust</div>
+                    <div class="stat-label">Execution Muscle</div>
+                </div>
+            </div>
+
+            <div class="mock-terminal">
+                <div class="terminal-header">
+                    <div class="dot dot-r"></div>
+                    <div class="dot dot-y"></div>
+                    <div class="dot dot-g"></div>
+                </div>
+                <div class="terminal-body">
+                    <div class="line">$ qrypton-term attach --dex=hyperliquid</div>
+                    <div class="line">📡 Establishing secure handshake with RPC relay...</div>
+                    <div class="line success">✓ Handshake established: WebSocket stream active.</div>
+                    <div class="line">📊 Local Vault: Decrypted | Session: 0x8f22...</div>
+                    <div class="line">🛡️ MEV Shield: Jito Bundle Active</div>
+                    <div class="line"></div>
+                    <div class="output success">ORDER PLACED: [BUY 1.5 BTC @ $94,210] - Latency: 0.8ms</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-box">
+                <h2>Terminal <br>Core Modules</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="zap"></i></div>
+                        <div>
+                            <h4>Unified Order Book</h4>
+                            <p>Real-time depth aggregation across Hyperliquid, dYdX, and Paradex with sub-millisecond price normalization.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="shield"></i></div>
+                        <div>
+                            <h4>Signed Intent Architecture</h4>
+                            <p>Sensitive keys remain client-side. Payloads are constructed in Rust and signed via private execution agents.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="activity"></i></div>
+                        <div>
+                            <h4>Cross-Protocol Hedge</h4>
+                            <p>Institutional-grade risk management by maintaining delta-neutral counter-positions across disparate protocols.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch-map">
+                <div style="margin-bottom: 2rem;">
+                    <i data-lucide="cpu" size="48" color="#3b82f6"></i>
+                </div>
+                <h3>Technical Foundation</h3>
+                <p style="color:var(--text-dim); margin-top: 1rem;">Go-based orchestration coupled with Rust execution adapters for optimized EIP-712 and STARK curve signatures.</p>
+                <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                    <p style="font-size: 0.8rem; color: var(--accent);">PROPRIETARY SDK INTEGRATED</p>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            style="margin: 6rem 0; padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim);">
+            &copy; 2024 System Architect Portfolio | Qrypton Pro Engine v3.0
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Quant Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen selection:bg-primary selection:text-black">
+    <nav
+        class="sticky top-0 z-50 border-b border-zinc-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="text-primary"><span class="material-symbols-outlined text-3xl">terminal</span></div>
+                <span class="font-bold text-lg tracking-tight uppercase">ALPHA_NONFOUNDER_V6</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+                <a class="hover:text-primary transition-colors" href="#markets">Scope</a>
+                <a class="hover:text-primary transition-colors" href="#stack">Stack</a>
+                <a class="hover:text-primary transition-colors" href="#work">Proof</a>
+                <a class="hover:text-primary transition-colors" href="#about">Bio</a>
+                <a class="hover:text-primary transition-colors" href="#intelligence">Intelligence</a>
+                <a class="hover:text-primary transition-colors border border-primary/30 px-4 py-2 rounded-lg hover:bg-primary/10 ml-4"
+                    href="#contact">Connect</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-lg border border-zinc-200 dark:border-border-dark hover:bg-zinc-100 dark:hover:bg-primary/10 transition-colors">
+                    <span id="theme-icon" class="material-symbols-outlined text-xl">light_mode</span>
+                </button>
+                <div class="flex gap-2">
+                    <span class="size-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="text-[10px] text-primary font-bold uppercase">System Status: Optimized</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-7xl mx-auto px-6 py-4 space-y-12">
+        <!-- Terminal Hero - Home -->
+        <section class="relative pt-4" id="home">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="rounded-xl overflow-hidden border border-zinc-300 dark:border-border-dark bg-[#0a0a0a] terminal-shadow">
+                    <div class="bg-[#1a1a1a] px-4 py-2 flex items-center justify-between border-b border-zinc-800">
+                        <div class="flex gap-2">
+                            <div class="size-3 rounded-full bg-volatility-red/80"></div>
+                            <div class="size-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="size-3 rounded-full bg-primary/80"></div>
+                        </div>
+                        <div
+                            class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-2">
+                            root@quant-engine: ~ (zsh)</div>
+                        <div class="w-12"></div>
+                    </div>
+                    <div class="p-8 font-mono relative bg-[#0a0a0a]">
+                        <div class="space-y-4">
+                            <p class="text-zinc-500 text-sm">Session uptime: 52,560 hours</p>
+                            <div class="flex gap-2 items-start"><span class="text-primary font-bold">➜</span><span
+                                    class="text-zinc-400">~</span><span class="text-white"
+                                    id="terminal-cmd-1"></span><span
+                                    class="w-2 h-5 bg-primary animate-pulse inline-block align-middle"
+                                    id="cursor-1"></span></div>
+                            <div class="pl-6 space-y-4 opacity-0 transition-opacity duration-1000"
+                                id="terminal-content">
+                                <h1
+                                    class="text-3xl md:text-5xl font-bold leading-tight uppercase italic tracking-tighter">
+                                    <span class="text-volatility-red">I Lose money</span> <br class="md:hidden" /><span
+                                        class="text-primary">faster than your GPU mines it.</span>
+                                </h1>
+                                <p class="text-zinc-300 text-lg md:text-xl">Trader , Product Builder , Researcher ,
+                                    Someone who learnt the language of all the markets <br /><span
+                                        class="text-zinc-500 italic">"If your tools don't have an API, they aren't
+                                        tools."</span></p>
+                            </div>
+                            <div class="flex gap-2 items-start pt-4"><span class="text-primary font-bold">➜</span><span
+                                    class="text-zinc-400">~</span><span class="text-white opacity-0"
+                                    id="terminal-cmd-2-container"><span id="terminal-cmd-2"></span><span
+                                        class="w-2 h-5 bg-primary animate-pulse inline-block align-middle hidden"
+                                        id="cursor-2"></span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [01] Market Coverage -->
+        <section class="space-y-8 py-5" id="markets">
+            <div class="flex items-end justify-between border-b border-border-dark pb-4">
+                <div class="overflow-hidden group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary font-mono font-bold text-xl">[01]</span>
+                        <h2
+                            class="text-3xl font-bold italic uppercase pr-4 group-hover:translate-x-2 transition-transform duration-500">
+                            Market Coverage</h2>
+                    </div>
+                    <p class="text-zinc-500 text-xs font-mono tracking-[0.3em] mt-1 ml-12">MULTIMODAL EXE > FX /
+                        ON-CHAIN
+                    </p>
+                </div>
+            </div>
+            <div id="markets-grid" class="grid grid-cols-2 md:grid-cols-6 gap-4"></div>
+        </section>
+
+        <!-- [02] Tech Stack & Tooling -->
+        <section class="space-y-6 reveal-on-scroll py-5" id="stack">
+            <div class="flex items-end justify-between border-b border-border-dark pb-4">
+                <div class="overflow-hidden group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary font-mono font-bold text-xl">[02]</span>
+                        <h2
+                            class="text-3xl font-bold tracking-tight uppercase italic group-hover:translate-x-2 transition-transform duration-500 pr-4">
+                            Tech Stack & Tooling
+                        </h2>
+                    </div>
+                    <p class="text-zinc-500 text-xs tracking-[0.3em] font-mono mt-1 ml-12">SYSTEM_INFRA > SCALABLE_STACK
+                    </p>
+                </div>
+            </div>
+            <div id="tech-stack-grid" class="grid grid-cols-1 md:grid-cols-4 gap-6"></div>
+        </section>
+
+        <!-- [03] Proof of Work -->
+        <section class="space-y-6 py-5" id="work">
+            <div class="flex items-end justify-between border-b border-border-dark pb-4">
+                <div class="overflow-hidden group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary font-mono font-bold text-xl">[03]</span>
+                        <h2
+                            class="text-3xl font-bold tracking-tight uppercase italic group-hover:translate-x-2 transition-transform duration-500 pr-4">
+                            Proof of Work
+                        </h2>
+                    </div>
+                    <p class="text-zinc-500 text-xs tracking-[0.3em] font-mono mt-1 ml-12">DEPLOYED_EQUITY & REPOS</p>
+                </div>
+            </div>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+        </section>
+
+        <!-- [04] Systems Bio (About) -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-5" id="about">
+            <div class="space-y-6">
+                <div class="flex items-end justify-between border-b border-border-dark pb-4 mb-8">
+                    <div class="overflow-hidden group">
+                        <div class="flex items-center gap-3">
+                            <span class="text-primary font-mono font-bold text-xl">[04]</span>
+                            <h2
+                                class="text-3xl font-bold italic group-hover:translate-x-2 transition-transform duration-500 pr-4 uppercase">
+                                Systems Bio
+                            </h2>
+                        </div>
+                        <p class="text-zinc-500 text-xs font-mono uppercase tracking-[0.3em] mt-1 ml-12">CORE_ARCHITECT
+                            > PRODUCT_OWNER</p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-zinc-400 leading-relaxed">
+                    <p>
+                        Product-focused trading systems builder with 6+ years of hands-on experience.
+                        Built and researched systems end-to-end: low-latency execution, CEX/DEX routing, backend
+                        architecture, and on-chain settlement.
+                        Operated across multi-asset and geopolitical markets.
+                    </p>
+                    <div class="flex gap-4 pt-4">
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-slate-900 dark:text-white">6+</p>
+                            <p class="text-[10px] uppercase text-zinc-500">Years Exp</p>
+                        </div>
+                        <span class="w-px h-10 bg-zinc-200 dark:bg-zinc-800"></span>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-slate-900 dark:text-white">LOW</p>
+                            <p class="text-[10px] uppercase text-zinc-500">Latency</p>
+                        </div>
+                        <span class="w-px h-10 bg-zinc-200 dark:bg-zinc-800"></span>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-slate-900 dark:text-white">10bp</p>
+                            <p class="text-[10px] uppercase text-zinc-500 text-primary">Saved</p>
+                        </div>
+                    </div>
+
+                    <!-- Network Matrix -->
+                    <div class="pt-8 space-y-3">
+                        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Connectivity_Matrix</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://github.com/soumen888" target="_blank"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/5 text-primary text-[10px] font-mono shadow-[0_0_10px_rgba(19,236,91,0.1)] hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_rgba(19,236,91,0.2)] transition-all group">
+                                <span class="size-1.5 rounded-full bg-primary animate-pulse"></span>
+                                GITHUB.NET [ONLINE]
+                            </a>
+                            <a href="https://x.com/Soumendas__" target="_blank"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/5 text-primary text-[10px] font-mono shadow-[0_0_10px_rgba(19,236,91,0.1)] hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_rgba(19,236,91,0.2)] transition-all group">
+                                <span
+                                    class="size-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></span>
+                                X_ALPHA.EXE
+                            </a>
+                            <a href="https://t.me/SOUMEN_98" target="_blank"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/5 text-primary text-[10px] font-mono shadow-[0_0_10px_rgba(19,236,91,0.1)] hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_rgba(19,236,91,0.2)] transition-all group">
+                                <span
+                                    class="size-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></span>
+                                TELEGRAM.SH
+                            </a>
+                            <a href="https://www.linkedin.com/in/soumen888/" target="_blank"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/5 text-primary text-[10px] font-mono shadow-[0_0_10px_rgba(19,236,91,0.1)] hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_rgba(19,236,91,0.2)] transition-all group">
+                                <span
+                                    class="size-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></span>
+                                LINKEDIN_NODE
+                            </a>
+                            <a href="mailto:ssoumendas98@outlook.com"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/5 text-primary text-[10px] font-mono shadow-[0_0_10px_rgba(19,236,91,0.1)] hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_rgba(19,236,91,0.2)] transition-all group">
+                                <span
+                                    class="size-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></span>
+                                PING_PROTOCOL
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- System Audio Easter Egg -->
+                    <div class="pt-6">
+                        <button id="audio-btn" onclick="toggleAudio()"
+                            class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-zinc-500 hover:text-primary transition-colors group">
+                            <span
+                                class="material-symbols-outlined text-sm group-hover:animate-spin">settings_voice</span>
+                            SYSTEM_AUDIO : [OFFLINE]
+                        </button>
+
+                        <div id="audio-player-container"
+                            class="hidden mt-4 rounded-lg overflow-hidden border border-zinc-800 bg-black p-2 audio-glow">
+                            <div class="flex items-center justify-between mb-2 px-1">
+                                <span class="text-[9px] font-mono text-primary animate-pulse flex items-center gap-1">
+                                    <span class="size-1 rounded-full bg-primary"></span> PLAYING_NOW...
+                                </span>
+                                <button onclick="toggleAudio()"
+                                    class="text-zinc-500 hover:text-volatility-red text-[9px] font-mono uppercase">Terminate</button>
+                            </div>
+                            <div
+                                class="h-24 w-full rounded border border-zinc-800 flex items-center justify-center bg-black/40 relative overflow-hidden">
+                                <div class="flex items-center gap-1.5 h-12">
+                                    <div class="w-1 h-4 bg-primary waveform-bar" style="animation-delay: 0.1s"></div>
+                                    <div class="w-1 h-8 bg-primary waveform-bar" style="animation-delay: 0.3s"></div>
+                                    <div class="w-1 h-12 bg-primary waveform-bar" style="animation-delay: 0.5s"></div>
+                                    <div class="w-1 h-6 bg-primary waveform-bar" style="animation-delay: 0.2s"></div>
+                                    <div class="w-1 h-10 bg-primary waveform-bar" style="animation-delay: 0.4s"></div>
+                                    <div class="w-1 h-8 bg-primary waveform-bar" style="animation-delay: 0.1s"></div>
+                                    <div class="w-1 h-4 bg-primary waveform-bar" style="animation-delay: 0.3s"></div>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none">
+                                </div>
+                                <audio id="audio-player"
+                                    src="audio/Michael Jackson - Black or White (Official Video).mp3"></audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative group">
+                <div
+                    class="aspect-square bg-zinc-900 rounded-2xl border border-zinc-300 dark:border-zinc-800 overflow-hidden shadow-2xl">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        src="soumen.jpg" alt="Quant Visual" />
+                    <!-- Terminal Badge Overlay -->
+                    <div
+                        class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 border border-zinc-700/50 rounded-lg font-mono text-[10px] text-primary">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span>IDENTITY_VERIFIED</span>
+                        </div>
+                        <p class="text-zinc-400">STATUS: ON-CHAIN_ALPHA_DETECTED</p>
+                    </div>
+                </div>
+                <!-- Backdrop Glow -->
+                <div
+                    class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full -z-10 group-hover:bg-primary/10 transition-colors duration-700">
+                </div>
+            </div>
+        </section>
+
+        <!-- [05] Market Intelligence -->
+        <section id="intelligence" class="py-5">
+            <div class="max-w-7xl mx-auto space-y-4 pt-4">
+                <div class="flex items-end justify-between border-b border-border-dark pb-4 mb-8">
+                    <div class="overflow-hidden group">
+                        <div class="flex items-center gap-3">
+                            <span class="text-primary font-mono font-bold text-xl">[05]</span>
+                            <h2
+                                class="text-3xl font-bold italic uppercase tracking-tighter pr-4 group-hover:translate-x-2 transition-transform duration-500">
+                                Market Intelligence
+                            </h2>
+                        </div>
+                        <p class="text-zinc-500 text-xs font-mono tracking-[0.3em] mt-1 ml-12">REALTIME_FEED >
+                            GLOBAL_MARKETS</p>
+                    </div>
+                </div>
+
+                <div class="bg-black border border-zinc-800 rounded-xl overflow-hidden terminal-shadow">
+                    <!-- Tabs Header -->
+                    <div class="flex border-b border-zinc-800 bg-zinc-900/50 overflow-x-auto">
+                        <button
+                            class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest border-r border-zinc-800 hover:bg-primary/5 text-primary transition-colors whitespace-nowrap"
+                            onclick="switchWidget('symbolOverview', this)">Overview</button>
+                        <button
+                            class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest border-r border-zinc-800 hover:bg-primary/5 text-zinc-500 transition-colors whitespace-nowrap"
+                            onclick="switchWidget('cryptoHeatmap', this)">Crypto Map</button>
+                        <button
+                            class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest border-r border-zinc-800 hover:bg-primary/5 text-zinc-500 transition-colors whitespace-nowrap"
+                            onclick="switchWidget('stockHeatmap', this)">Stock Map</button>
+                        <button
+                            class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:bg-primary/5 transition-colors whitespace-nowrap"
+                            onclick="switchWidget('forexHeatmap', this)">Forex Map</button>
+                    </div>
+
+                    <!-- Widget Display Area -->
+                    <div id="widget-display" class="h-[600px] w-full bg-[#0a0a0a]" data-widget-type="symbolOverview">
+                        <!-- Widget will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [06] POST /api/alpha (Contact) -->
+        <section id="contact" class="py-5">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="flex items-end justify-between border-b border-border-dark pb-4 mb-8">
+                    <div class="overflow-hidden group">
+                        <div class="flex items-center gap-3">
+                            <span class="text-primary font-mono font-bold text-xl">[06]</span>
+                            <h2
+                                class="text-3xl font-bold italic uppercase pr-4 group-hover:translate-x-2 transition-transform duration-500">
+                                POST /api/alpha
+                            </h2>
+                        </div>
+                        <p class="text-zinc-500 text-xs font-mono tracking-[0.3em] mt-1 ml-12">ESTABLISH_CONNECTION >
+                            RSA_ENCRYPTED</p>
+                    </div>
+                </div>
+                <div class="bg-black border border-zinc-800 rounded-xl overflow-hidden font-mono shadow-2xl">
+                    <div class="p-8 space-y-4 text-sm">
+                        <div class="flex gap-4"><span class="text-zinc-700">01</span> <span
+                                class="text-purple-400">{</span></div>
+                        <div class="flex gap-4"><span class="text-zinc-700">02</span> <span>&nbsp;&nbsp;<span
+                                    class="text-primary">"entity"</span>: <span class="text-yellow-200">"Your
+                                    Firm"</span>,</span></div>
+                        <div class="flex gap-4"><span class="text-zinc-700">03</span>
+                            <div class="flex-1">&nbsp;&nbsp;<span class="text-primary">"asset_class"</span>: <input
+                                    class="bg-transparent border-none p-0 focus:ring-0 text-yellow-200 w-full placeholder:text-zinc-800"
+                                    placeholder="SOL / FX / EQUITY..." type="text" /></div>
+                        </div>
+                        <div class="flex gap-4"><span class="text-zinc-700">04</span>
+                            <div class="flex-1">&nbsp;&nbsp;<span class="text-primary">"brief"</span>: <textarea
+                                    class="bg-transparent border-none p-0 focus:ring-0 text-yellow-200 w-full resize-none placeholder:text-zinc-800 h-12"
+                                    placeholder="Define the objective..."></textarea></div>
+                        </div>
+                        <div class="flex gap-4"><span class="text-zinc-700">05</span> <span
+                                class="text-purple-400">}</span></div>
+                        <div class="pt-6 flex justify-end"><button
+                                class="bg-primary text-black px-8 py-2 rounded font-bold text-xs uppercase tracking-widest hover:brightness-125">INIT_CONNECT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer
+        class="bg-zinc-100 dark:bg-surface-dark border-t border-zinc-200 dark:border-border-dark py-3 overflow-hidden relative">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <!-- Ticker Segment 1 -->
+            <div class="flex gap-10 items-center text-[10px] font-mono font-bold uppercase px-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-zinc-500">SOUMEN/USD</span>
+                    <span class="text-primary">$2000.00 <span class="text-[8px]">▲</span></span>
+                </div>
+                <span class="text-zinc-500">SYSTEM: <span class="text-white">API INTEGRATED</span></span>
+                <span class="text-zinc-500">EXPERIENCE: <span class="text-volatility-red">6+
+                        YRS LOSING MONEY</span></span>
+                <span class="text-primary font-bold">ALPHA DETECTED</span>
+                <span class="text-zinc-500">DEPLOYED: <span class="text-white">QRYPTON.TRADE</span></span>
+                <span class="text-primary">10BPS SAVED</span>
+                <span class="text-zinc-500">MARGIN: <span class="text-volatility-red">0.00%</span></span>
+                <span class="text-white tracking-tighter">TRADING & BUILDING</span>
+                <span class="text-primary">ARKHAM SYNC OK</span>
+                <span class="text-zinc-400 italic">NOW GO BUILD SOMETHING.</span>
+            </div>
+            <!-- Duplicate for Seamless Loop -->
+            <div class="flex gap-10 items-center text-[10px] font-mono font-bold uppercase px-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-zinc-500">SOUMEN/USD</span>
+                    <span class="text-primary">$2000.00 <span class="text-[8px]">▲</span></span>
+                </div>
+                <span class="text-zinc-500">SYSTEM: <span class="text-white">API INTEGRATED</span></span>
+                <span class="text-zinc-500">EXPERIENCE: <span class="text-volatility-red">6+
+                        YRS LOSING MONEY</span></span>
+                <span class="text-primary font-bold">ALPHA DETECTED</span>
+                <span class="text-zinc-500">DEPLOYED: <span class="text-white">QRYPTON.TRADE</span></span>
+                <span class="text-primary">10BPS SAVED</span>
+                <span class="text-zinc-500">MARGIN: <span class="text-volatility-red">0.00%</span></span>
+                <span class="text-white tracking-tighter">TRADING & BUILDING</span>
+                <span class="text-primary">ONCHAIN SYNC OK</span>
+                <span class="text-zinc-400 italic">NOW GO BUILD SOMETHING.</span>
+            </div>
+        </div>
+    </footer>
+    <div class="crt-overlay fixed inset-0 z-[60] opacity-[0.03] pointer-events-none"></div>
+    <script src="js/data.js"></script>
+    <script src="js/widgets.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
